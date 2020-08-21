@@ -26,7 +26,8 @@ while True:
     thresh_frame = cv2.dilate(thresh_frame,None,iterations=2) #To smoothen the threshold frame
 
     """Finding all the countours of every object in threshold frame and storing them in cnts.
-    Also we retrieve the external countours using methods like RETR and CHAIN_APPROX"""
+    Also we retrieve the external countours using methods like RETR and CHAIN_APPROX. Countours
+    are stored in tuple therefore chosen variable(cnts,_)"""
 
     (cnts,_) = cv2.findContours(thresh_frame.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
