@@ -25,9 +25,22 @@ while True:
     thresh_frame = cv2.threshold(delta_frame,30,255,cv2.THRESH_BINARY)[1] 
     thresh_frame = cv2.dilate(thresh_frame,None,iterations=2) #To smoothen the threshold frame
 
+    """Finding all the countours of every object in threshold frame and storing them in cnts.
+    Also we retrieve the external countours using methods like RETR and CHAIN_APPROX"""
+
+    (cnts,_) = cv2.findContours(thresh_frame.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    for contour in cnts:
+        if cv2.contourArea(contour) < 1000:
+            continue
+        (x,y,w,h) = cv2.boundingRect(contour)
+        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
+
     cv2.imshow("GrayFrame", gray)
     cv2.imshow("DeltaFrame",delta_frame)
     cv2.imshow("Threshold Frame",thresh_frame)
+    cv2.imshow("ColoredFrame",frame)
+
     key = cv2.waitKey(1)
     print(gray)
     print(delta_frame)
