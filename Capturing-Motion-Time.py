@@ -45,6 +45,8 @@ while True:
     key = cv2.waitKey(1)
 
     if key == ord('q'):
+        if status==1:
+            times.append(datetime.now()))
         break
     
 print(status_list)
