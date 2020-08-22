@@ -2,7 +2,7 @@ import cv2, time
 from datetime import datetime
 
 first_frame = None
-status_list=[]
+status_list=[None, None]
 times=[]
 
 video = cv2.VideoCapture(0)
@@ -22,7 +22,6 @@ while True:
     thresh_frame = cv2.dilate(thresh_frame,None,iterations=2) 
 
     (cnts,_) = cv2.findContours(thresh_frame.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
     for contour in cnts:
         if cv2.contourArea(contour) < 10000:
             continue
