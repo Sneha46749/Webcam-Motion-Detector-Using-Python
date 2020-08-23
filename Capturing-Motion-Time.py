@@ -60,6 +60,8 @@ if i in range(0,len(times),2):
 
 df.to_csv("Times.csv")
 
+
 video.release()   
+
 
 cv2.destroyAllWindows()
