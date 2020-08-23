@@ -50,8 +50,10 @@ while True:
         if status==1:
             times.append(datetime.now())
         break
-    
+
+
 print(status_list)
+
 
 if i in range(0,len(times),2):
     df=df.append({"Start":times[i],"End":times[i+1]}, ignore_index=True)
@@ -59,5 +61,5 @@ if i in range(0,len(times),2):
 df.to_csv("Times.csv")
 
 video.release()   
- 
+
 cv2.destroyAllWindows()
