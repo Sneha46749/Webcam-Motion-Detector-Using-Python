@@ -30,8 +30,7 @@ while True:
         status=1
         (x,y,w,h) = cv2.boundingRect(contour)
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
-    status_list.append(status)    
-
+    status_list.append(status)   
 
     if status_list[-1]==1 and status_list[-2]==0:
         times.append(datetime.now())
@@ -54,7 +53,7 @@ while True:
 print(status_list)
 
 if i in range(0,len(times),2):
-    df=df.append({"Start":times[i],"End":times[i+1]}, ignore_index=True)
+     df=df.append({"Start":times[i],"End":times[i+1]}, ignore_index=True)
 
 df.to_csv("Times.csv")
 
