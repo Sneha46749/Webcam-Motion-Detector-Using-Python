@@ -6,7 +6,7 @@ from bokeh.models import HoverTool, ColumnDataSource
 df["Start_string"]=df["Start"].dt.strftime("%Y-%m-%d  %H:%M:%S")
 df["End_string"]=df["End"].dt.strftime("%Y-%m-%d  %H:%M:%S") 
 
-cds = ColumnDataSource(df)  #To extract the column data from the source file
+cds = ColumnDataSource(df)   #To extract the column data from the source file
 
 p=figure(x_axis_type="datetime",height="100",width="500",responsive=True,title="Motion Graph")
 p.yaxis.minor_tick_line_color=None  
