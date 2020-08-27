@@ -12,7 +12,7 @@ p=figure(x_axis_type="datetime",height="100",width="500",responsive=True,title="
 p.yaxis.minor_tick_line_color=None  
 p.ygrid[0].ticker.desired_num_ticks=1
 
-"""HoverTool is used to display the information on any graph simply as a popup window"""
+"""HoverTool is used to display the information of the graph simply as in a popup window"""
 hover=HoverTool(tooltips=[("Start","@Start_string"),("End","@End_string")])
 
 q=p.quad(left=["Start"],right=["End"],bottom=0,top=1,color="green")
